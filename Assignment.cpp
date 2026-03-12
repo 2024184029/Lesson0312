@@ -25,8 +25,11 @@ int main()
 
 	Pick(Pocket, Size, PickCount);
 
-	delete[] Pocket;
-	Pocket = nullptr;
+	if (Pocket)
+	{
+		delete[] Pocket;
+		Pocket = nullptr;
+	}
 
 	return 0;
 }
