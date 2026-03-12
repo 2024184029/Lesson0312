@@ -5,13 +5,8 @@ using namespace std;
 //주머니에 45개의 공이 있습니다.
 //그중 6개를 뽑는 프로그램을 만들어 보세요.
 
-int main()
+void RandomBalls(int* Pocket)
 {
-	srand(unsigned(time(NULL)));
-	
-	int Pocket[45];
-	int Picked[6];
-
 	// 1~45 숫자 넣기
 	for (int i = 0; i < 45; i++)
 	{
@@ -23,7 +18,10 @@ int main()
 	{
 		Pocket[i] = rand() % 45;
 	}
+}
 
+void PickBalls(int* Picked, int* Pocket)
+{
 	// 주머니에서 6개 공 랜덤하게 섞기
 	for (int i = 0; i < 6; i++)
 	{
@@ -36,6 +34,21 @@ int main()
 	{
 		cout << Picked[i] << ' ';
 	}
+}
+
+int main()
+{
+	srand(unsigned(time(NULL)));
+	
+	int Pocket[45];
+	int* B = Pocket;
+
+	int Picked[6];
+	int* P = Picked;
+
+	RandomBalls(Pocket);
+
+	PickBalls(Picked, Pocket);
 
 	return 0;
 }
