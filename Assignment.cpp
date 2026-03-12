@@ -7,16 +7,10 @@ using namespace std;
 
 void RandomBalls(int* Pocket)
 {
-	// 1~45 숫자 넣기
-	for (int i = 0; i < 45; i++)
-	{
-		Pocket[i] = i + 1;
-	}
-
 	// 랜덤하게 공 섞기
 	for (int i = 0; i < 45; i++)
 	{
-		Pocket[i] = rand() % 45;
+		Pocket[i] = rand() % 45 + 1;
 	}
 }
 
@@ -26,6 +20,14 @@ void PickBalls(int* Picked, int* Pocket)
 	for (int i = 0; i < 6; i++)
 	{
 		Picked[i] = Pocket[i] % 45 + 1;
+		for (int j = 0; j < i; j++)
+		{
+			if (Picked[i] == Picked[j])
+			{
+				i--;
+				break;
+			}
+		}
 	}
 
 	// 뽑은 공 6개 출력하기
