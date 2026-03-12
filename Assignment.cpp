@@ -16,13 +16,13 @@ void RandomBalls(int* Pocket)
 
 void PickBalls(int* Picked, int* Pocket)
 {
-	// 주머니에서 6개 공 랜덤하게 섞기
+	// 주머니에서 6개의 랜덤 공
 	for (int i = 0; i < 6; i++)
 	{
 		Picked[i] = Pocket[i] % 45 + 1;
 		for (int j = 0; j < i; j++)
 		{
-			if (Picked[i] == Picked[j])
+			if (Picked[i] == Picked[j]) // 중복 공 뽑지 않음
 			{
 				i--;
 				break;
